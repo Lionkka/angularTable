@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-animate.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-sanitize.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+    <!--<script src="example.js"></script>-->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="script.js"></script>
+    <style>
+        body {
+            margin-top: 2%
+        }
+
+        .loading {
+            position: absolute;
+            left: 50%;
+            top: 200px;
+        }
+    </style>
+
+</head>
+<body>
+<div ng-controller="productCtrl">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="loading" ng-show="!data">
+                    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <ul uib-pagination
+                    total-items="bigTotalItems"
+                    ng-model="bigCurrentPage"
+                    max-size="maxSize"
+                    class="pagination-sm"
+                    boundary-links="true"
+                    force-ellipses="true"
+                    ng-change="pageChanged()"
+                ></ul>
+
+                <pre>Page: {{bigCurrentPage}} / {{numPages}}</pre>
+                <table class="table table-list-search">
+                    <thead>
+                    <tr>
+                        <th><input class="form-control input-sm" placeholder="Search id"
+                                   ng-model="searchProduct.id"></th>
+                        <th><input class="form-control input-sm" placeholder="Search title"
+                                   ng-model="searchProduct.title"></th>
+                        <th><input class="form-control input-sm" placeholder="Search price"
+                                   ng-model="searchProduct.price"></th>
+                        <th><input class="form-control input-sm" placeholder="Search timestamp"
+                                   ng-model="searchProduct.timestamp"></th>
+                    </tr>
+                    <tr>
+                        <th><a href="#" ng-click="sortType = 'id'; sortReverse = !sortReverse; sortProduct(sortType)">
+                            ID
+                            <span ng-show="sortType == 'id'" class="fa fa-caret-{{sortReverse?'up':'down' }}"></span>
+                        </a></th>
+                        <th><a href="#" ng-click="sortType = 'title'; sortReverse = !sortReverse; sortProduct(sortType)">
+                            Title
+                            <span ng-show="sortType == 'title'" class="fa fa-caret-{{sortReverse?'up':'down' }}"></span>
+                        </a></th>
+                        <th><a href="#" ng-click="sortType = 'price'; sortReverse = !sortReverse; sortProduct(sortType)">
+                            price
+                            <span ng-show="sortType == 'price'" class="fa fa-caret-{{sortReverse?'up':'down' }}"></span>
+                        </a></th>
+                        <th><a href="#" ng-click="sortType = 'timestamp'; sortReverse = !sortReverse ; sortProduct(sortType)">
+                            price
+                            <span ng-show="sortType == 'timestamp'"
+                                  class="fa fa-caret-{{sortReverse?'up':'down' }}"></span>
+                        </a></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="product in data | filter:searchProduct">
+                        <td>{{product.id}}</td>
+                        <td>{{product.title}}</td>
+                        <td>{{product.price}}</td>
+                        <td>{{product.timestamp| date : 'medium' }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
