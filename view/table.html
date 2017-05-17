@@ -10,12 +10,11 @@
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="script.js"></script>
+    <script src="table.js"></script>
     <style>
         body {
             margin-top: 2%
         }
-
         .loading {
             position: absolute;
             left: 50%;
@@ -158,11 +157,11 @@
                                    ng-change="requestData()"
                                    ng-model="searchPhrases.timestamp"></th>
                         <th><select  class="form-control"
-                                         ng-model="searchPhrases.group_id"
-                                         ng-change="requestData()">
-                                    <option value="">Sort by group</option>
-                                    <option value="{{group}}" ng-repeat="group in groups">{{group}}</option>
-                            </select>
+                                     ng-model="searchPhrases.group_id"
+                                     ng-change="requestData()">
+                            <option value="">Sort by group</option>
+                            <option value="{{group}}" ng-repeat="group in groups">{{group}}</option>
+                        </select>
                         </th>
                         <th><select  class="form-control"
                                      ng-model="searchPhrases.connectivity"
