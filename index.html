@@ -26,7 +26,7 @@
 </head>
 <body>
 <div ng-controller="productCtrl">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <div class="loading" ng-show="!data">
@@ -48,17 +48,31 @@
                     <thead>
                     <tr>
                         <th><input class="form-control input-sm" placeholder="Search id"
-                                   ng-change="searchProduct('id')"
+                                   ng-change="searchProduct()"
                                    ng-model="search.id"></th>
                         <th><input class="form-control input-sm" placeholder="Search title"
-                                   ng-change="searchProduct('title')"
+                                   ng-change="searchProduct()"
                                    ng-model="search.title"></th>
                         <th><input class="form-control input-sm" placeholder="Search price"
-                                   ng-change="searchProduct('price')"
+                                   ng-change="searchProduct()"
                                    ng-model="search.price"></th>
                         <th><input class="form-control input-sm" placeholder="Search timestamp"
-                                   ng-change="searchProduct('timestam')"
-                                   ng-model="search.timestam"></th>
+                                   ng-change="searchProduct()"
+                                   ng-model="search.timestamp"></th>
+                        <th><select  class="form-control"
+                                     ng-model="search.group_id"
+                                     ng-change="searchProduct()">
+                            <option value="">Search group</option>
+                            <option value="{{group}}" ng-repeat="group in groups">{{group}}</option>
+                        </select>
+                        </th>
+                        <th><select  class="form-control"
+                                     ng-model="search.connectivity"
+                                     ng-change="searchProduct()">
+                            <option value="">Search connectivity</option>
+                            <option value="{{item}}" ng-repeat="item in connectivity">{{item}}</option>
+                        </select>
+                        </th>
                     </tr>
                     <tr>
                         <th><a href="#" ng-click="sortType = 'id'; sortReverse = !sortReverse; sortProduct(sortType)">
@@ -78,6 +92,16 @@
                             <span ng-show="sortType == 'timestamp'"
                                   class="fa fa-caret-{{sortReverse?'up':'down' }}"></span>
                         </a></th>
+                        <th><a href="#" ng-click="sortType = 'group_id'; sortReverse = !sortReverse ; sortProduct(sortType)">
+                            group_id
+                            <span ng-show="sortType == 'group_id'"
+                                  class="fa fa-caret-{{sortReverse?'up':'down' }}"></span>
+                        </a></th>
+                        <th><a href="#" ng-click="sortType = 'connectivity'; sortReverse = !sortReverse ; sortProduct(sortType)">
+                            connectivity
+                            <span ng-show="sortType == 'connectivity'"
+                                  class="fa fa-caret-{{sortReverse?'up':'down' }}"></span>
+                        </a></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -86,6 +110,109 @@
                         <td>{{product.title}}</td>
                         <td>{{product.price}}</td>
                         <td>{{product.timestamp| date : 'medium' }}</td>
+                        <td>{{product.group_id}}</td>
+                        <td class="alert alert-{{(product.connectivity === 'Blocked')?'danger':'success'}}">{{product.connectivity}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<hr>
+<hr>
+<div ng-controller="serverSortCtrl">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="loading" ng-show="isLoading">
+                    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <ul uib-pagination
+                    total-items="totalItems"
+                    ng-model="currentPage"
+                    max-size="maxSize"
+                    class="pagination-sm"
+                    boundary-links="true"
+                    force-ellipses="true"
+                    ng-change="requestData()"
+                ></ul>
+
+                <pre>Page: {{currentPage}} / {{numPages}}</pre>
+                <table class="table table-list-search">
+                    <thead>
+                    <tr>
+                        <th><input class="form-control input-sm" placeholder="Search id"
+                                   ng-change="requestData()"
+                                   ng-model="searchPhrases.id"></th>
+                        <th><input class="form-control input-sm" placeholder="Search title"
+                                   ng-change="requestData()"
+                                   ng-model="searchPhrases.title"></th>
+                        <th><input class="form-control input-sm" placeholder="Search price"
+                                   ng-change="requestData()"
+                                   ng-model="searchPhrases.price"></th>
+                        <th><input class="form-control input-sm" placeholder="Search timestamp"
+                                   ng-change="requestData()"
+                                   ng-model="searchPhrases.timestamp"></th>
+                        <th><select  class="form-control"
+                                         ng-model="searchPhrases.group_id"
+                                         ng-change="requestData()">
+                                    <option value="">Sort by group</option>
+                                    <option value="{{group}}" ng-repeat="group in groups">{{group}}</option>
+                            </select>
+                        </th>
+                        <th><select  class="form-control"
+                                     ng-model="searchPhrases.connectivity"
+                                     ng-change="requestData()">
+                            <option value="">Sort by connectivity</option>
+                            <option ng-repeat="item in connectivity"
+                                    value="{{item}}">
+                                {{item}}</option>
+                        </select>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th><a href="#" ng-click="sortType = 'id'; sortReverse = !sortReverse; requestData()">
+                            ID
+                            <span ng-show="sortType == 'id'" class="fa fa-caret-{{sortReverse?'up':'down' }}"></span>
+                        </a></th>
+                        <th><a href="#" ng-click="sortType = 'title'; sortReverse = !sortReverse; requestData()">
+                            Title
+                            <span ng-show="sortType == 'title'" class="fa fa-caret-{{sortReverse?'up':'down' }}"></span>
+                        </a></th>
+                        <th><a href="#" ng-click="sortType = 'price'; sortReverse = !sortReverse; requestData()">
+                            Price
+                            <span ng-show="sortType == 'price'" class="fa fa-caret-{{sortReverse?'up':'down' }}"></span>
+                        </a></th>
+                        <th><a href="#" ng-click="sortType = 'timestamp'; sortReverse = !sortReverse ; requestData()">
+                            Timestamp
+                            <span ng-show="sortType == 'timestamp'"
+                                  class="fa fa-caret-{{sortReverse?'up':'down' }}"></span>
+                        </a></th>
+                        <th><a href="#" ng-click="sortType = 'group_id'; sortReverse = !sortReverse ; requestData()">
+                            group_id
+                            <span ng-show="sortType == 'group_id'"
+                                  class="fa fa-caret-{{sortReverse?'up':'down' }}"></span>
+                        </a></th>
+                        <th><a href="#" ng-click="sortType = 'connectivity'; sortReverse = !sortReverse ; requestData()">
+                            connectivity
+                            <span ng-show="sortType == 'connectivity'"
+                                  class="fa fa-caret-{{sortReverse?'up':'down' }}"></span>
+                        </a></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr ng-repeat="product in data">
+                        <td>{{product.id}}</td>
+                        <td>{{product.title}}</td>
+                        <td>{{product.price}}</td>
+                        <td>{{product.timestamp| date : 'medium' }}</td>
+                        <td>{{product.group_id}}</td>
+                        <td class="alert alert-{{(product.connectivity === 'Blocked')?'danger':'success'}}">{{product.connectivity}}</td>
                     </tr>
                     </tbody>
                 </table>

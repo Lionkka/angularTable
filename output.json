@@ -7,7 +7,9 @@
     "images": [
       "http://i.ebayimg.com/images/g/tv0AAOxyLm9TBm9G/s-l300.jpg"
     ],
-    "timestamp": "2017-05-15T10:34:30.112Z"
+    "timestamp": "2017-05-15T10:34:30.112Z",
+    "group_id": "group_r",
+    "connectivity": "Blocked"
   },
   {
     "id": "332217696094",
@@ -19,7 +21,9 @@
       "http://i.ebayimg.com/images/a/(KGrHqZ,!gwE9T96KBrmBPn0LWjp,g~~/s-l500.jpg",
       "http://i.ebayimg.com/images/a/(KGrHqV,!qcE88ftTVwTBPn0LQU0pw~~/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:34:33.110Z"
+    "timestamp": "2017-05-15T10:34:33.110Z",
+    "group_id": "group_c",
+    "connectivity": "Unblocked"
   },
   {
     "id": "172217595105",
@@ -33,7 +37,9 @@
       "http://i.ebayimg.com/images/g/1QgAAOSwlndZAYsf/s-l500.jpg",
       "http://i.ebayimg.com/images/g/syoAAOSw-3FZAYsf/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:34:35.986Z"
+    "timestamp": "2017-05-15T10:34:35.986Z",
+    "group_id": "group_x",
+    "connectivity": "Blocked"
   },
   {
     "id": "282470439976",
@@ -49,7 +55,9 @@
       "http://i.ebayimg.com/images/g/eDYAAOSwdjNZCuYN/s-l500.jpg",
       "http://i.ebayimg.com/images/g/yDcAAOSwX61ZCuYM/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:34:38.922Z"
+    "timestamp": "2017-05-15T10:34:38.922Z",
+    "group_id": "group_l",
+    "connectivity": "Blocked"
   },
   {
     "id": "361634692054",
@@ -59,7 +67,9 @@
     "images": [
       "http://i.ebayimg.com/images/g/2NYAAOSwOVpXfVNc/s-l300.jpg"
     ],
-    "timestamp": "2017-05-15T10:34:42.027Z"
+    "timestamp": "2017-05-15T10:34:42.027Z",
+    "group_id": "group_b",
+    "connectivity": "Unblocked"
   },
   {
     "id": "272671203973",
@@ -80,7 +90,9 @@
       "http://i.ebayimg.com/images/g/xykAAOSw1WJZGHGv/s-l500.jpg",
       "http://i.ebayimg.com/images/g/QGUAAOSwBt5ZGHG2/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:34:44.882Z"
+    "timestamp": "2017-05-15T10:34:44.882Z",
+    "group_id": "group_m",
+    "connectivity": "Blocked"
   },
   {
     "id": "282477441008",
@@ -100,7 +112,9 @@
       "http://i.ebayimg.com/images/g/tLYAAOSwN6JY~IKd/s-l500.jpg",
       "http://i.ebayimg.com/images/g/XugAAOSw3ZRY~IKi/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:34:47.817Z"
+    "timestamp": "2017-05-15T10:34:47.817Z",
+    "group_id": "group_g",
+    "connectivity": "Unblocked"
   },
   {
     "id": "292112580372",
@@ -112,7 +126,9 @@
       "http://i.ebayimg.com/images/g/ocMAAOSwBt5ZDdXV/s-l500.jpg",
       "http://i.ebayimg.com/images/g/SNkAAOSwKytZDdXq/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:34:50.631Z"
+    "timestamp": "2017-05-15T10:34:50.631Z",
+    "group_id": "group_d",
+    "connectivity": "Unblocked"
   },
   {
     "id": "132192083486",
@@ -131,7 +147,9 @@
       "http://i.ebayimg.com/images/g/U6UAAOSwIQdZGLCw/s-l500.jpg",
       "http://i.ebayimg.com/images/g/1t0AAOSwX9FZGLC5/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:34:53.456Z"
+    "timestamp": "2017-05-15T10:34:53.456Z",
+    "group_id": "group_d",
+    "connectivity": "Unblocked"
   },
   {
     "id": "291973673709",
@@ -163,7 +181,9 @@
       "http://i.ebayimg.com/images/g/1kgAAOSwc1FXcO6b/s-l500.jpg",
       "http://i.ebayimg.com/images/g/XgUAAOSwEjFXcO6d/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:34:56.745Z"
+    "timestamp": "2017-05-15T10:34:56.745Z",
+    "group_id": "group_k",
+    "connectivity": "Unblocked"
   },
   {
     "id": "272662705111",
@@ -178,7 +198,9 @@
       "http://i.ebayimg.com/images/g/ZFkAAOSwE0JY9uwR/s-l500.jpg",
       "http://i.ebayimg.com/images/g/UgUAAOSw7U5Y9uwV/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:34:59.752Z"
+    "timestamp": "2017-05-15T10:34:59.752Z",
+    "group_id": "group_l",
+    "connectivity": "Blocked"
   },
   {
     "id": "172674470518",
@@ -190,7 +212,9 @@
       "http://i.ebayimg.com/images/g/XL8AAOSwY3BZGJDt/s-l500.jpg",
       "http://i.ebayimg.com/images/g/6CEAAOSw3gJZGJDx/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:35:02.534Z"
+    "timestamp": "2017-05-15T10:35:02.534Z",
+    "group_id": "group_z",
+    "connectivity": "Blocked"
   },
   {
     "id": "172512749811",
@@ -201,7 +225,9 @@
       "http://i.ebayimg.com/images/g/3X0AAOSwo4pYk72y/s-l500.jpg",
       "http://i.ebayimg.com/images/g/qQgAAOSw241Yk72y/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:35:05.284Z"
+    "timestamp": "2017-05-15T10:35:05.284Z",
+    "group_id": "group_r",
+    "connectivity": "Blocked"
   },
   {
     "id": "292117047751",
@@ -221,7 +247,9 @@
       "http://i.ebayimg.com/images/g/GEoAAOSwax5Yq9v-/s-l500.jpg",
       "http://i.ebayimg.com/images/g/jusAAOSwOgdYq9wF/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:35:08.262Z"
+    "timestamp": "2017-05-15T10:35:08.262Z",
+    "group_id": "group_b",
+    "connectivity": "Unblocked"
   },
   {
     "id": "262386396259",
@@ -233,7 +261,9 @@
       "http://i.ebayimg.com/images/g/QRQAAOSwKfVXD2fm/s-l500.jpg",
       "http://i.ebayimg.com/images/g/37sAAOSwhDdXD2fm/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:35:11.045Z"
+    "timestamp": "2017-05-15T10:35:11.045Z",
+    "group_id": "group_n",
+    "connectivity": "Blocked"
   },
   {
     "id": "322441802567",
@@ -279,7 +309,9 @@
       "http://i.ebayimg.com/images/g/qLQAAOSwXYtYut3p/s-l500.jpg",
       "http://i.ebayimg.com/images/g/clEAAOSwWxNY0fAf/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:35:14.338Z"
+    "timestamp": "2017-05-15T10:35:14.338Z",
+    "group_id": "group_y",
+    "connectivity": "Blocked"
   },
   {
     "id": "332217819821",
@@ -296,7 +328,9 @@
       "http://i.ebayimg.com/images/g/dYIAAOSwBahU07Up/s-l500.jpg",
       "http://i.ebayimg.com/images/g/bQQAAOSwBahU07Ti/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:35:17.127Z"
+    "timestamp": "2017-05-15T10:35:17.127Z",
+    "group_id": "group_h",
+    "connectivity": "Unblocked"
   },
   {
     "id": "201508015838",
@@ -306,7 +340,9 @@
     "images": [
       "http://i.ebayimg.com/images/g/ltwAAOSwL7VWoGBK/s-l300.jpg"
     ],
-    "timestamp": "2017-05-15T10:35:20.168Z"
+    "timestamp": "2017-05-15T10:35:20.168Z",
+    "group_id": "group_c",
+    "connectivity": "Unblocked"
   },
   {
     "id": "272667902249",
@@ -316,7 +352,9 @@
     "images": [
       "http://i.ebayimg.com/images/g/0MAAAOSwA3dYUH13/s-l300.jpg"
     ],
-    "timestamp": "2017-05-15T10:35:22.996Z"
+    "timestamp": "2017-05-15T10:35:22.996Z",
+    "group_id": "group_d",
+    "connectivity": "Unblocked"
   },
   {
     "id": "311645801497",
@@ -346,7 +384,9 @@
       "http://i.ebayimg.com/images/g/BjgAAOSwZ1BXc36p/s-l500.jpg",
       "http://i.ebayimg.com/images/g/BnUAAOSwZ1BXc36s/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:35:25.977Z"
+    "timestamp": "2017-05-15T10:35:25.977Z",
+    "group_id": "group_y",
+    "connectivity": "Blocked"
   },
   {
     "id": "351478245845",
@@ -359,7 +399,9 @@
       "http://i.ebayimg.com/images/g/fFsAAOSw9eVXXgd3/s-l500.jpg",
       "http://i.ebayimg.com/images/g/HOQAAOSwQupXXgd3/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:35:28.641Z"
+    "timestamp": "2017-05-15T10:35:28.641Z",
+    "group_id": "group_n",
+    "connectivity": "Blocked"
   },
   {
     "id": "272662698558",
@@ -372,7 +414,9 @@
       "http://i.ebayimg.com/images/g/mlQAAOSwjL5ZBw1j/s-l500.jpg",
       "http://i.ebayimg.com/images/g/yeIAAOSwnONZBw1w/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:35:31.405Z"
+    "timestamp": "2017-05-15T10:35:31.405Z",
+    "group_id": "group_g",
+    "connectivity": "Unblocked"
   },
   {
     "id": "152457351245",
@@ -382,7 +426,9 @@
     "images": [
       "http://i.ebayimg.com/images/g/SGQAAOSwY0lXR3-4/s-l300.jpg"
     ],
-    "timestamp": "2017-05-15T10:35:34.251Z"
+    "timestamp": "2017-05-15T10:35:34.251Z",
+    "group_id": "group_h",
+    "connectivity": "Unblocked"
   },
   {
     "id": "322512029097",
@@ -395,7 +441,9 @@
       "http://i.ebayimg.com/images/g/j0cAAOSwZJBX~SkQ/s-l500.jpg",
       "http://i.ebayimg.com/images/g/ac4AAOSwzaJX~Skb/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:35:37.047Z"
+    "timestamp": "2017-05-15T10:35:37.047Z",
+    "group_id": "group_d",
+    "connectivity": "Unblocked"
   },
   {
     "id": "302315996885",
@@ -416,7 +464,9 @@
       "http://i.ebayimg.com/images/g/d2YAAOSwfpVZF3zB/s-l500.jpg",
       "http://i.ebayimg.com/images/g/vRkAAOSwZKBZF3zO/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:35:39.749Z"
+    "timestamp": "2017-05-15T10:35:39.749Z",
+    "group_id": "group_g",
+    "connectivity": "Unblocked"
   },
   {
     "id": "232331502367",
@@ -426,7 +476,9 @@
     "images": [
       "http://i.ebayimg.com/images/g/MigAAOSwB-1Yt~M7/s-l300.jpg"
     ],
-    "timestamp": "2017-05-15T10:35:42.641Z"
+    "timestamp": "2017-05-15T10:35:42.641Z",
+    "group_id": "group_q",
+    "connectivity": "Blocked"
   },
   {
     "id": "252933822877",
@@ -444,7 +496,9 @@
       "http://i.ebayimg.com/images/g/VfAAAOSwX61ZFTTy/s-l500.jpg",
       "http://i.ebayimg.com/images/g/P00AAOSwlMFZFTT3/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:35:45.454Z"
+    "timestamp": "2017-05-15T10:35:45.454Z",
+    "group_id": "group_n",
+    "connectivity": "Blocked"
   },
   {
     "id": "252091155357",
@@ -464,7 +518,9 @@
       "http://i.ebayimg.com/images/g/bPUAAOSw9r1V9nJb/s-l500.jpg",
       "http://i.ebayimg.com/images/g/ZC4AAOSwHjNV9nJi/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:35:48.482Z"
+    "timestamp": "2017-05-15T10:35:48.482Z",
+    "group_id": "group_h",
+    "connectivity": "Unblocked"
   },
   {
     "id": "322459549589",
@@ -478,7 +534,9 @@
       "http://i.ebayimg.com/images/g/2SwAAOSwTM5Y0erR/s-l500.jpg",
       "http://i.ebayimg.com/images/g/hYcAAOSwax5Y0era/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:35:51.313Z"
+    "timestamp": "2017-05-15T10:35:51.313Z",
+    "group_id": "group_i",
+    "connectivity": "Unblocked"
   },
   {
     "id": "322114840595",
@@ -488,7 +546,9 @@
     "images": [
       "http://i.ebayimg.com/images/g/NoMAAOSwQSZXPrem/s-l300.jpg"
     ],
-    "timestamp": "2017-05-15T10:35:54.195Z"
+    "timestamp": "2017-05-15T10:35:54.195Z",
+    "group_id": "group_m",
+    "connectivity": "Blocked"
   },
   {
     "id": "282477442670",
@@ -507,7 +567,9 @@
       "http://i.ebayimg.com/images/g/-VQAAOSwWWxY~KcZ/s-l500.jpg",
       "http://i.ebayimg.com/images/g/qy8AAOSwWiBY~Kcm/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:35:57.084Z"
+    "timestamp": "2017-05-15T10:35:57.084Z",
+    "group_id": "group_o",
+    "connectivity": "Blocked"
   },
   {
     "id": "112402476438",
@@ -525,7 +587,9 @@
       "http://i.ebayimg.com/images/g/JowAAOSw-3FZEu9q/s-l500.jpg",
       "http://i.ebayimg.com/images/g/SBkAAOSwIQdZEu9s/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:35:59.850Z"
+    "timestamp": "2017-05-15T10:35:59.850Z",
+    "group_id": "group_k",
+    "connectivity": "Unblocked"
   },
   {
     "id": "252186515451",
@@ -537,7 +601,9 @@
       "http://i.ebayimg.com/images/g/S3EAAOSw~gRVteTI/s-l500.jpg",
       "http://i.ebayimg.com/images/g/YzYAAOSwHnFVteTM/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:36:02.793Z"
+    "timestamp": "2017-05-15T10:36:02.793Z",
+    "group_id": "group_k",
+    "connectivity": "Unblocked"
   },
   {
     "id": "262935351853",
@@ -558,7 +624,9 @@
       "http://i.ebayimg.com/images/g/S5sAAOSwUEVYDTsw/s-l500.jpg",
       "http://i.ebayimg.com/images/g/QxUAAOSwA3dYDTs~/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:36:05.882Z"
+    "timestamp": "2017-05-15T10:36:05.882Z",
+    "group_id": "group_b",
+    "connectivity": "Unblocked"
   },
   {
     "id": "162416316283",
@@ -568,7 +636,9 @@
     "images": [
       "http://i.ebayimg.com/images/g/nDcAAOSwa81XR39B/s-l300.jpg"
     ],
-    "timestamp": "2017-05-15T10:36:08.780Z"
+    "timestamp": "2017-05-15T10:36:08.780Z",
+    "group_id": "group_l",
+    "connectivity": "Blocked"
   },
   {
     "id": "182375332318",
@@ -582,7 +652,9 @@
       "http://i.ebayimg.com/images/g/PBgAAOSwA3dYQmRV/s-l500.jpg",
       "http://i.ebayimg.com/images/g/tMsAAOSwEzxYQmRV/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:36:11.655Z"
+    "timestamp": "2017-05-15T10:36:11.655Z",
+    "group_id": "group_e",
+    "connectivity": "Unblocked"
   },
   {
     "id": "292045040827",
@@ -601,7 +673,9 @@
       "http://i.ebayimg.com/images/g/bH4AAOSwo4pYZ4Er/s-l500.jpg",
       "http://i.ebayimg.com/images/g/56YAAOSw2xRYZ4Ey/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:36:14.419Z"
+    "timestamp": "2017-05-15T10:36:14.419Z",
+    "group_id": "group_r",
+    "connectivity": "Blocked"
   },
   {
     "id": "262835128462",
@@ -612,7 +686,9 @@
       "http://i.ebayimg.com/images/g/zAwAAOSwnHZYk72M/s-l500.jpg",
       "http://i.ebayimg.com/images/g/tnQAAOSwNnRYk72M/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:36:17.297Z"
+    "timestamp": "2017-05-15T10:36:17.297Z",
+    "group_id": "group_c",
+    "connectivity": "Unblocked"
   },
   {
     "id": "142382787361",
@@ -633,7 +709,9 @@
       "http://i.ebayimg.com/images/g/o5wAAOSw8HBZGGeB/s-l500.jpg",
       "http://i.ebayimg.com/images/g/dWsAAOSwYlRZGGeG/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:36:19.978Z"
+    "timestamp": "2017-05-15T10:36:19.978Z",
+    "group_id": "group_r",
+    "connectivity": "Blocked"
   },
   {
     "id": "272358020383",
@@ -647,7 +725,9 @@
       "http://i.ebayimg.com/images/g/0rEAAOSwgmJXxVs7/s-l500.jpg",
       "http://i.ebayimg.com/images/g/MxgAAOSw9IpXxVs9/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:36:22.877Z"
+    "timestamp": "2017-05-15T10:36:22.877Z",
+    "group_id": "group_x",
+    "connectivity": "Blocked"
   },
   {
     "id": "172673254541",
@@ -668,7 +748,9 @@
       "http://i.ebayimg.com/images/g/Z6IAAOSwjqVZF0H1/s-l500.jpg",
       "http://i.ebayimg.com/images/g/F-cAAOSwPh5ZFz9G/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:36:25.597Z"
+    "timestamp": "2017-05-15T10:36:25.597Z",
+    "group_id": "group_c",
+    "connectivity": "Unblocked"
   },
   {
     "id": "162408568778",
@@ -684,7 +766,9 @@
       "http://i.ebayimg.com/images/g/egQAAOSwCU1YsOPd/s-l500.jpg",
       "http://i.ebayimg.com/images/g/UgIAAOSw~AVYsOPf/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:36:28.442Z"
+    "timestamp": "2017-05-15T10:36:28.442Z",
+    "group_id": "group_n",
+    "connectivity": "Blocked"
   },
   {
     "id": "232327002829",
@@ -700,7 +784,9 @@
       "http://i.ebayimg.com/images/g/E-MAAOSwhvFZD5Vm/s-l500.jpg",
       "http://i.ebayimg.com/images/g/EQYAAOSw42dZD5Tg/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:36:31.136Z"
+    "timestamp": "2017-05-15T10:36:31.136Z",
+    "group_id": "group_n",
+    "connectivity": "Blocked"
   },
   {
     "id": "262920067023",
@@ -717,7 +803,9 @@
       "http://i.ebayimg.com/images/g/JmYAAOSwXYtY4IY-/s-l500.jpg",
       "http://i.ebayimg.com/images/g/GsAAAOSww3tY4IZj/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:36:34.003Z"
+    "timestamp": "2017-05-15T10:36:34.003Z",
+    "group_id": "group_v",
+    "connectivity": "Blocked"
   },
   {
     "id": "232326065784",
@@ -727,7 +815,9 @@
     "images": [
       "http://i.ebayimg.com/images/g/9DAAAOSwAANY8PQR/s-l300.jpg"
     ],
-    "timestamp": "2017-05-15T10:36:36.760Z"
+    "timestamp": "2017-05-15T10:36:36.760Z",
+    "group_id": "group_m",
+    "connectivity": "Blocked"
   },
   {
     "id": "361893193788",
@@ -739,7 +829,9 @@
       "http://i.ebayimg.com/images/g/ojoAAOSwB-1Y62jP/s-l500.jpg",
       "http://i.ebayimg.com/images/g/mvYAAOSwmgJY62jT/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:36:39.586Z"
+    "timestamp": "2017-05-15T10:36:39.586Z",
+    "group_id": "group_c",
+    "connectivity": "Unblocked"
   },
   {
     "id": "252930344783",
@@ -759,7 +851,9 @@
       "http://i.ebayimg.com/images/g/dZAAAOSwBt5ZFPrg/s-l500.jpg",
       "http://i.ebayimg.com/images/g/66cAAOSwKytZFPrn/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:36:42.434Z"
+    "timestamp": "2017-05-15T10:36:42.434Z",
+    "group_id": "group_c",
+    "connectivity": "Unblocked"
   },
   {
     "id": "192148947607",
@@ -774,7 +868,9 @@
       "http://i.ebayimg.com/images/g/LccAAOSw4CFYx6Jx/s-l500.jpg",
       "http://i.ebayimg.com/images/g/-IIAAOSwOgdYx6Jx/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:36:45.183Z"
+    "timestamp": "2017-05-15T10:36:45.183Z",
+    "group_id": "group_b",
+    "connectivity": "Unblocked"
   },
   {
     "id": "182197956804",
@@ -791,7 +887,9 @@
       "http://i.ebayimg.com/images/g/948AAOSwImRYIWFA/s-l500.jpg",
       "http://i.ebayimg.com/images/g/WSoAAOSwnbZYIWFF/s-l500.jpg"
     ],
-    "timestamp": "2017-05-15T10:36:48.298Z"
+    "timestamp": "2017-05-15T10:36:48.298Z",
+    "group_id": "group_k",
+    "connectivity": "Unblocked"
   },
   {
     "id": "272667632700",
@@ -801,6 +899,8 @@
     "images": [
       "http://i.ebayimg.com/images/g/QkQAAOSwcgNZFKvV/s-l300.jpg"
     ],
-    "timestamp": "2017-05-15T10:36:51.404Z"
+    "timestamp": "2017-05-15T10:36:51.404Z",
+    "group_id": "group_z",
+    "connectivity": "Blocked"
   }
 ]
