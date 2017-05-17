@@ -7,19 +7,40 @@ app.controller('productCtrl', ($scope, $http, $timeout) => {
     $scope.maxSize = 10;
     $scope.bigTotalItems = 10;
     $scope.bigCurrentPage = 1;
-    $scope.numPages = 0;
+    $scope.numPages = Math.ceil( $scope.bigTotalItems/$scope.maxSize);
     $scope.products = [];
     $scope.data = [];
+    $scope.search = {
+        id: '',
+        title: '',
+        price: '',
+        timestamp: ''
+    };
 
-    $timeout(productsReq, '10');
+
+    $timeout(productsReq, '2000');
+
+    $scope.searchProduct = function (type) {
+
+        $scope.data = [];
+        $scope.products.forEach((item) => {
+            if (item[type].toLowerCase().indexOf($scope.search[type].toLowerCase()) > -1) {
+                $scope.data.push(item);
+            }
+        });
+        $scope.bigCurrentPage = 1;
+        $scope.bigTotalItems = $scope.data.length;
+        $scope.numPages = Math.ceil( $scope.bigTotalItems/$scope.maxSize);
+
+    };
 
     $scope.pageChanged = function () {
         $scope.data = $scope.products.slice(($scope.bigCurrentPage - 1) *
-            $scope.maxSize, $scope.bigCurrentPage * $scope.maxSize);
+            $scope.maxSize);
     };
 
     $scope.sortProduct = function (sortType) {
-        $scope.products.sort((a, b)=> {
+        $scope.products.sort((a, b) => {
 
             let order = !$scope.sortReverse ? 1 : -1;
             if (sortType === 'price') {
@@ -46,14 +67,15 @@ app.controller('productCtrl', ($scope, $http, $timeout) => {
         });
         $scope.pageChanged();
     };
+
     function productsReq() {
         $http.get('http://localhost:3000/products')
             .success((result) => {
 
                 $scope.products = result;
                 $scope.bigTotalItems = result.length;
-                $scope.numPages = $scope.bigTotalItems / $scope.maxSize;
                 $scope.pageChanged();
+                $scope.numPages = Math.ceil( $scope.bigTotalItems/$scope.maxSize);
             })
             .error((err) => console.log(err));
     }

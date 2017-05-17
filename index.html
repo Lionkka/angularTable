@@ -48,13 +48,17 @@
                     <thead>
                     <tr>
                         <th><input class="form-control input-sm" placeholder="Search id"
-                                   ng-model="searchProduct.id"></th>
+                                   ng-change="searchProduct('id')"
+                                   ng-model="search.id"></th>
                         <th><input class="form-control input-sm" placeholder="Search title"
-                                   ng-model="searchProduct.title"></th>
+                                   ng-change="searchProduct('title')"
+                                   ng-model="search.title"></th>
                         <th><input class="form-control input-sm" placeholder="Search price"
-                                   ng-model="searchProduct.price"></th>
+                                   ng-change="searchProduct('price')"
+                                   ng-model="search.price"></th>
                         <th><input class="form-control input-sm" placeholder="Search timestamp"
-                                   ng-model="searchProduct.timestamp"></th>
+                                   ng-change="searchProduct('timestam')"
+                                   ng-model="search.timestam"></th>
                     </tr>
                     <tr>
                         <th><a href="#" ng-click="sortType = 'id'; sortReverse = !sortReverse; sortProduct(sortType)">
@@ -66,18 +70,18 @@
                             <span ng-show="sortType == 'title'" class="fa fa-caret-{{sortReverse?'up':'down' }}"></span>
                         </a></th>
                         <th><a href="#" ng-click="sortType = 'price'; sortReverse = !sortReverse; sortProduct(sortType)">
-                            price
+                            Price
                             <span ng-show="sortType == 'price'" class="fa fa-caret-{{sortReverse?'up':'down' }}"></span>
                         </a></th>
                         <th><a href="#" ng-click="sortType = 'timestamp'; sortReverse = !sortReverse ; sortProduct(sortType)">
-                            price
+                            Timestamp
                             <span ng-show="sortType == 'timestamp'"
                                   class="fa fa-caret-{{sortReverse?'up':'down' }}"></span>
                         </a></th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="product in data | filter:searchProduct">
+                    <tr ng-repeat="product in data | limitTo:maxSize">
                         <td>{{product.id}}</td>
                         <td>{{product.title}}</td>
                         <td>{{product.price}}</td>
