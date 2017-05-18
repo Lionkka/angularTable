@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const products = require('./routes/products');
+const singup = require('./routes/singup');
 const cors = require('cors');
 
 app.use(cors());
@@ -11,6 +12,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/products', products);
+app.use('/singup', singup);
 
 
 // catch 404 and forward to error handler

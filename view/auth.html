@@ -5,13 +5,15 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-animate.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-sanitize.js"></script>
     <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/2.1.0/toaster.js"></script>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/2.1.0/toaster.css" rel="stylesheet" />
     <!--<script src="example.js"></script>-->
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="auth.js"></script>
     <style>
-        .radio label{
+        .radio label {
             margin-right: 25px;
         }
     </style>
@@ -21,130 +23,217 @@
 </head>
 <body>
 
-<div class="container" style="margin-top:2%" ng-controller="authCtrl">
+<div class="container" style="margin-top:200px" ng-controller="authCtrl" >
     <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-default">
-            <div class="panel-heading"><h3 class="panel-title"><strong>Sign in </strong></h3>
-                <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a>
-                </div>
-            </div>
-
             <div class="panel-body">
-                <form role="form">
-                    <div class="alert alert-danger" ng-show="hasError">
-                        <a class="close" data-dismiss="alert" href="#">×</a>Incorrect Username or Password!
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-4 col-md-4">
-                            <div class="form-group">
-                                <input type="text" name="first_name" id="first_name" class="form-control"
-                                       placeholder="First Name" tabindex="1">
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-4 col-md-4">
-                            <div class="form-group">
-                                <input type="text" name="last_name" id="last_name" class="form-control "
-                                       placeholder="Last Name" tabindex="2">
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-4 col-md-4">
-                                <p class="input-group">
-                                    <input type="text" class="form-control" uib-datepicker-popup ng-model="dt"
-                                           is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true"
-                                           close-text="Close"/>
-                                    <span class="input-group-btn">
-            <button type="button" class="btn btn-default" ng-click="open2()"><i
-                    class="glyphicon glyphicon-calendar"></i></button>
-          </span>
-                                </p>
-                        </div>
 
-                    </div>
+                <form role="form" name="singupForm" ng-submit="submitForm(singupForm.$valid)" novalidate>
 
                     <div class="row">
                         <div class="col-xs-12 col-sm-6 col-md-6">
-                            <div class="form-group">
-                                <input type="email" name="email" id="email" class="form-control " placeholder="Email Address"
-                                       tabindex="4">
+                            <div class="form-group"
+                                 ng-class="{ 'has-error' : singupForm.first_name.$invalid && singupForm.first_name.$dirty}">
+                                <input type="text"
+                                       name="first_name"
+                                       ng-model="first_name"
+                                       class="form-control"
+                                       placeholder="First Name"
+                                       ng-required="true"
+                                       minlength="3"
+                                       maxlength="20">
+                                <p ng-show="singupForm.first_name.$error.required && singupForm.first_name.$dirty" class="help-block">
+                                    First name is required.</p>
+                                <p ng-show="singupForm.first_name.$error.minlength" class="help-block">First name is too short.</p>
+                                <p ng-show="singupForm.first_name.$error.maxlength" class="help-block">First name is too long.</p>
+                            </div>
+
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="form-group"
+                                 ng-class="{ 'has-error' : singupForm.last_name.$invalid && singupForm.last_name.$dirty}">
+                                <input type="text"
+                                       name="last_name"
+                                       ng-model="last_name"
+                                       class="form-control "
+                                       placeholder="Last Name"
+                                       ng-required="true"
+                                       minlength="3"
+                                       maxlength="20">
+
+                                <p ng-show="singupForm.last_name.$error.required && singupForm.last_name.$dirty" class="help-block">
+                                    Last name is required.</p>
+                                <p ng-show="singupForm.last_name.$error.minlength" class="help-block">Last name is too short.</p>
+                                <p ng-show="singupForm.last_name.$error.maxlength" class="help-block">Last name is too long.</p>
                             </div>
                         </div>
-                        <div class="col-xs-6 col-sm-3 col-md-3">
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-4 col-md-4">
+                            <div class="form-group"
+                                 ng-class="{ 'has-error' : singupForm.height.$invalid && singupForm.height.$dirty}">
+                                <input ng-required="true"
+                                       type="number"
+                                       name="height"
+                                       min="150"
+                                       max="210"
+                                       ng-model="height"
+                                       class="form-control"
+                                       placeholder="height">
+                                <p ng-show="singupForm.height.$error.required && singupForm.height.$dirty"
+                                   class="help-block"> Height is required.</p>
+                                <p ng-show="singupForm.height.$error.min" class="help-block">Height is too less.</p>
+                                <p ng-show="singupForm.height.$error.max" class="help-block">Height is too big.</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4">
+                            <p class="input-group"
+                               ng-class="{ 'has-error' : singupForm.bday.$invalid && singupForm.bday.$dirty}">
+                                <input type="text"
+                                       placeholder="Your birthday"
+                                       class="form-control"
+                                       uib-datepicker-popup
+                                       ng-model="bday"
+                                       name="bday"
+                                       id="bday"
+                                       required="required"
+                                       is-open="popup2.opened"
+                                       datepicker-options="dateOptions"
+                                       ng-required="true"
+                                       close-text="Close"/>
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="open2()">
+                                        <i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+
+                            <p ng-show="singupForm.bday.$error.required && singupForm.bday.$dirty"
+                               class="help-block"> Birthday is required.</p>
+                            <p ng-show="singupForm.bday.$error.date" class="help-block">Birthday must be yyyy-mm-dd format.</p>
+
+                        </div>
+                        <div class="col-xs-6 col-sm-4 col-md-4">
                             <div class="form-group radio">
-                                <label>
-                                    <input type="radio" ng-model="gender.name" value="male">
+                                <label for="male">
+                                    <input type="radio"
+                                           id="male"
+                                           name="gender"
+                                           ng-model="gender"
+                                           value="male"
+                                           ng-required="!gender">
                                     Male
                                 </label>
-                                <label>
-                                    <input type="radio" ng-model="gender.name" value="female">
+                                <label for="female">
+                                    <input type="radio"
+                                           id="female"
+                                           name="gender"
+                                           ng-model="gender"
+                                           value="female"
+                                           ng-required="!gender">
                                     Female
                                 </label>
-                            </div>
-                        </div>
-                        <div class="col-xs-6 col-sm-3 col-md-3">
-                            <div class="form-group">
-                                <input type="number" name="height" min="150" max="210"
-                                       class="form-control " placeholder="height" tabindex="6">
+
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-xs-12 col-sm-6 col-md-6">
-                            <div class="form-group">
-                                <input type="text" name="country" class="form-control"
-                                       placeholder="country" tabindex="5">
+                            <div class="form-group"
+                                 ng-class="{ 'has-error' : singupForm.selectedCountry.$invalid && singupForm.selectedCountry.$dirty }">
+                                <select required="required"
+                                        ng-show="countries.length"
+                                        class="form-control"
+                                        name="selectedCountry"
+                                        ng-model="selectedCountry"
+                                        ng-change="getCities(selectedCountry)">
+
+                                    <option value="">Select your country</option>
+                                    <option value="{{county.name}}" ng-repeat="county in countries">{{county.name}}
+                                    </option>
+                                </select>
+
+                                <p ng-show="singupForm.selectedCountry.$error.required && singupForm.selectedCountry.$touched"
+                                   class="help-block"> Country is required.</p>
+
+                                <div class="loading" ng-show="!countries.length">
+                                    <i class="fa fa-spinner fa-pulse fa-fw"></i>
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-6">
-                            <div class="form-group">
-                                <input type="city" name="city"
-                                       class="form-control " placeholder="city" tabindex="6">
+                            <div class="form-group"
+                                 ng-class="{ 'has-error' : singupForm.selectedCity.$invalid && singupForm.selectedCity.$touched }">
+                                <select class="form-control"
+                                        required="required"
+                                        name="selectedCity"
+                                        ng-model="selectedCity"
+                                        ng-show="selectedCountry && cities.length">
+
+                                    <option value="">Select your city</option>
+                                    <option value="{{city}}" ng-repeat="city in cities">{{city}}</option>
+                                </select>
+                                <p ng-show="singupForm.selectedCity.$error.required && singupForm.selectedCity.$touched && !selectedCountry"
+                                   class="help-block"> City is required.</p>
+
+                                <div class="loading" ng-show="selectedCountry && !cities.length">
+                                    <i class="fa fa-spinner fa-pulse fa-fw"></i>
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+
+
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-xs-12 col-sm-6 col-md-6">
-                            <div class="form-group">
-                                <input type="password" name="password" id="password" class="form-control "
-                                       placeholder="Password" tabindex="5">
+                            <div class="form-group"
+                                 ng-class="{ 'has-error' : singupForm.password.$invalid && singupForm.password.$dirty}">
+                                <input type="password"
+                                       name="password"
+                                       ng-model="password"
+                                       class="form-control "
+                                       placeholder="Password"
+                                       minlength="8"
+                                       maxlength="20"
+                                       required="required">
+                                <p ng-show="singupForm.password.$error.required && singupForm.password.$dirty" class="help-block">
+                                    Password is required.</p>
+                                <p ng-show="singupForm.password.$error.minlength" class="help-block">Password is too short. Min 8</p>
+                                <p ng-show="singupForm.password.$error.maxlength" class="help-block">Password is too long. Max 20</p>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-6">
-                            <div class="form-group">
-                                <input type="password" name="password_confirmation" id="password_confirmation"
-                                       class="form-control " placeholder="Confirm Password" tabindex="6">
+                            <div class="form-group"
+                                 ng-class="{ 'has-error' : singupForm.password_confirmation.$error.passwordVerify ||(singupForm.password_confirmation.$invalid && singupForm.password_confirmation.$dirty)}">
+                                <input type="password"
+                                       name="password_confirmation"
+                                       ng-model="password_confirmation"
+                                       class="form-control"
+                                       placeholder="Confirm Password"
+                                       required="required"
+                                       password-verify="password">
+                                <p ng-show="singupForm.password_confirmation.$error.required && singupForm.password_confirmation.$dirty" class="help-block">
+                                    Password is required.</p>
+                                <p ng-show="singupForm.password_confirmation.$error.passwordVerify" class="help-block">
+                                    Passwords do not match
+                                </p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="input-group">
-                        <div class="checkbox" style="margin-top: 0px;">
-                            <label>
-                                <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
-                            </label>
-                        </div>
-                    </div>
+                    <button type="submit" class="btn btn-success" ng-disabled="singupForm.$invalid">Sign up</button>
 
-                    <button type="submit" class="btn btn-success">Sign in</button>
-
-                    <hr style="margin-top:10px;margin-bottom:10px;">
-
-                    <div class="form-group">
-
-                        <div style="font-size:85%">
-                            Don't have an account!
-                            <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()">
-                                Sign Up Here
-                            </a>
-                        </div>
-
-                    </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
-
+<toaster-container
+        toaster-options="{'close-button':false, 'time-out':{ 'toast-warning': 2000, 'toast-error': 0 } }"></toaster-container>
 </body>
 </html>
