@@ -1,13 +1,23 @@
 {
-  "name": "ExpressTest",
+  "name": "AngularTest",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./script.js"
+    "start": "node ./server.js"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
+    "cors": "*",
     "express": "~4.15.2",
-    "cors": "*"
+    "angular": "1.5.1",
+    "angular-animate": "1.5.1",
+    "angular-route": "1.5.1",
+    "angular-sanitize": "1.5.1",
+    "angular-touch": "1.5.1",
+    "angular-ui-bootstrap": "^2.5.0",
+    "angular-ui-router": "0.3.1",
+    "angularjs-toaster": "",
+    "font-awesome": "^4.7.0",
+    "restangular": "^1.6.1"
   }
 }
