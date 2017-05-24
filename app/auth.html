@@ -121,7 +121,7 @@
                                         class="form-control"
                                         name="selectedCountry"
                                         ng-model="selectedCountry"
-                                        ng-change="getCities(selectedCountry)">
+                                        ng-change="getCities(selectedCountry); selectedCity = ''; cities = []">
 
                                     <option value="">Select your country</option>
                                     <option value="{{county.name}}" ng-repeat="county in countries">{{county.name}}
@@ -131,10 +131,10 @@
                                 <p ng-show="singupForm.selectedCountry.$error.required && singupForm.selectedCountry.$touched"
                                    class="help-block"> Country is required.</p>
 
-                                <div class="loading" ng-show="!countries.length">
+                                <!--<div class="loading" ng-show="!countries.length">
                                     <i class="fa fa-spinner fa-pulse fa-fw"></i>
                                     <span class="sr-only">Loading...</span>
-                                </div>
+                                </div>-->
 
                             </div>
                         </div>
@@ -153,10 +153,10 @@
                                 <p ng-show="singupForm.selectedCity.$error.required && singupForm.selectedCity.$touched && !selectedCountry"
                                    class="help-block"> City is required.</p>
 
-                                <div class="loading" ng-show="selectedCountry && !cities.length">
+                                <!--<div class="loading" ng-show="selectedCountry && !cities.length">
                                     <i class="fa fa-spinner fa-pulse fa-fw"></i>
                                     <span class="sr-only">Loading...</span>
-                                </div>
+                                </div>-->
 
 
                             </div>
@@ -207,5 +207,3 @@
         </div>
     </div>
 </div>
-<toaster-container
-        toaster-options="{'close-button':false, 'time-out':{ 'toast-warning': 2000, 'toast-error': 0 } }"></toaster-container>

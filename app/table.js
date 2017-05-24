@@ -1,8 +1,7 @@
 "use strict";
 
-module.exports = (app)=>{
-    app.controller('productCtrl', ($scope, $http, $timeout) => {
-        let url = 'http://localhost:3000/products';
+module.exports = (app) => {
+    app.controller('productCtrl', ($scope, $timeout, toaster, Restangular) => {
         $scope.sortType = 'id';
         $scope.connectivity = ['Blocked', 'Unblocked'];
         $scope.sortReverse = false;
@@ -21,15 +20,15 @@ module.exports = (app)=>{
             group_id: '',
             connectivity: ''
         };
-
-
-        $http.get(url + '/groups').then(
-            (result) => {
-                $scope.groups = result.data;
-            },
-            (err) => console.log(err));
-
-        $timeout(productsReq, '2000');
+        getGroups();
+        productsReq();
+        function getGroups() {
+            toaster.pop('wait', "Process");
+            Restangular.all('products/groups').getList().then((groups) => {
+                //showMessage(groups);
+                $scope.groups = groups;
+            });
+        }
 
         $scope.searchProduct = function () {
 
@@ -40,9 +39,9 @@ module.exports = (app)=>{
                 let isPass = true;
 
                 for (let col in $scope.search) {
-                    if(col === 'connectivity'){
-                        if(item[col].toLowerCase()
-                                .indexOf($scope.search[col].toLowerCase()) !== 0 )
+                    if (col === 'connectivity') {
+                        if (item[col].toLowerCase()
+                                .indexOf($scope.search[col].toLowerCase()) !== 0)
                             isPass = false;
                     }
                     if (item[col].toLowerCase()
@@ -96,25 +95,38 @@ module.exports = (app)=>{
         };
 
         function productsReq() {
-            $http.get(url)
-                .success((result) => {
-
+            toaster.pop('wait', "Process");
+            $timeout(() => {
+                Restangular.all('products').getList().then((result) => {
+                    showMessage(result);
                     $scope.products = result;
                     $scope.bigTotalItems = result.length;
                     $scope.pageChanged();
                     $scope.numPages = Math.ceil($scope.bigTotalItems / $scope.maxSize);
-                })
-                .error((err) => console.log(err));
+                });
+
+            }, '2000');
+
+
+        }
+
+        function showMessage(response) {
+            toaster.clear();
+            console.log('must be toaster');
+            if (response) {
+                toaster.pop('success', "Success", null, 5000);
+            }
+            else {
+                toaster.pop('error', "Something wrong", null, 5000);
+            }
         }
 
 
     });
 
-    app.controller('serverSortCtrl', ($scope, $http) => {
-        let url = 'http://localhost:3000/products';
+    app.controller('serverSortCtrl', ($scope, toaster, Restangular) => {
         $scope.sortType = 'id';
         $scope.connectivity = ["Blocked", "Unblocked"];
-        $scope.isLoading = true;
         $scope.sortReverse = false;
         $scope.groups = [];
         $scope.maxSize = 10;
@@ -129,36 +141,47 @@ module.exports = (app)=>{
             group_id: '',
             connectivity: ''
         };
-        $http.get(url + '/groups').then(
-            (result) => {
-                $scope.groups = result.data;
-            },
-            (err) => console.log(err));
+        getGroups();
+        function getGroups() {
+            toaster.pop('wait', "Process");
+            Restangular.all('products/groups').getList().then((groups) => {
+                showMessage(groups);
+                $scope.groups = groups;
+            });
+        }
 
         $scope.requestData = () => {
-            $scope.isLoading = true;
-            $http({
-                method: 'GET',
-                url: url + '/paginate',
-                params: {
-                    page: $scope.currentPage,
-                    maxSize: $scope.maxSize,
-                    searchPhrases: $scope.searchPhrases,
-                    sortType: $scope.sortType,
-                    sortReverse: $scope.sortReverse
-                }
-            })
-                .then(
-                    (result) => {
-                        $scope.data = result.data.output;
-                        $scope.totalItems = result.data.totalItems;
-                        $scope.numPages = Math.ceil($scope.totalItems / $scope.maxSize);
-                        $scope.isLoading = false;
-                    },
-                    (err) => console.log(err)
-                );
+            toaster.pop('wait', "Process");
+
+            let params = {
+                page: $scope.currentPage,
+                maxSize: $scope.maxSize,
+                searchPhrases: $scope.searchPhrases,
+                sortType: $scope.sortType,
+                sortReverse: $scope.sortReverse
+            };
+            Restangular.all('products/paginate')
+                .getList(params)
+                .then((result) => {
+                    showMessage(result);
+                    $scope.data = result[1];
+                    $scope.totalItems = result[0];
+                    $scope.numPages = Math.ceil($scope.totalItems / $scope.maxSize);
+                });
         };
         $scope.requestData();
+
+        function showMessage(response) {
+            toaster.clear();
+            if (response) {
+                toaster.pop('success', "Success", null, 1000);
+            }
+            else {
+                toaster.pop('error', "Something wrong", null, 5000);
+            }
+        }
     });
+
+
 };
 

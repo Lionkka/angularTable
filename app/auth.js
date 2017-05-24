@@ -1,50 +1,47 @@
 "use strict";
 
-module.exports = (app)=>{
-    app.controller('authCtrl', ($scope, $http, toaster, Restangular) => {
-        let url = 'http://localhost:3000/singup';
-        $scope.hasError = false;
-        $scope.cities = [];
+module.exports = (app) => {
+    app.controller('authCtrl', ($scope, toaster, Restangular) => {
 
-        $scope.countries = Restangular.all('counties').getList().$object;
+        getCountries();
+        function getCountries() {
+            toaster.pop('wait', "Process");
+            Restangular.all('singup/counties').getList()
+                .then((countries) => {
+                    showMessage(countries);
+                    $scope.countries = countries;
+                });
+        }
 
         $scope.getCities = (country) => {
             toaster.pop('wait', "Process");
-            $scope.cities = Restangular.all('cities/'+country).getList().$object;
+            Restangular.all('singup/cities/' + country).getList()
+                .then((cities) => {
+                    $scope.cities = cities;
+                    showMessage(cities);
+                });
         };
 
         $scope.submitForm = function (isValid) {
             if (isValid) {
 
                 toaster.pop('wait', "Storing your data");
-                $http({
-                    method: 'POST',
-                    url: url + '/adduser',
-                    data: {
-                        first_name: $scope.first_name,
-                        last_name: $scope.last_name,
-                        height: $scope.height,
-                        bday: $scope.bday,
-                        gender: $scope.gender,
-                        country: $scope.selectedCountry,
-                        city: $scope.selectedCity,
-                        password: $scope.password
+                let formObj = {
+                    first_name: $scope.first_name,
+                    last_name: $scope.last_name,
+                    height: $scope.height,
+                    bday: $scope.bday,
+                    gender: $scope.gender,
+                    country: $scope.selectedCountry,
+                    city: $scope.selectedCity,
+                    password: $scope.password
 
-
-                    }
-                }).then(
-                    (result) => {
-
-                        console.log(result.data);
-                        toaster.clear();
-                        if(result.data === 'success')
-                            toaster.pop('success', "Success", null, 2000);
-                        else
-                            toaster.pop('error', "Something wrong", null, 2000);
-                    },
-                    (err) => console.log(err)
-                );
-
+                };
+                Restangular.all('singup/adduser')
+                    .post(formObj)
+                    .then((result) => {
+                        showMessage(result === 'success');
+                    });
             }
 
         };
@@ -68,6 +65,16 @@ module.exports = (app)=>{
             let date = data.date,
                 mode = data.mode;
             return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
+        }
+
+        function showMessage(response) {
+            toaster.clear();
+            if (response) {
+                toaster.pop('success', "Success", null, 1000);
+            }
+            else {
+                toaster.pop('error', "Something wrong", null, 5000);
+            }
         }
 
     });

@@ -12,7 +12,7 @@ require('angularjs-toaster');
 require('angular-ui-router');
 require('restangular');
 
-app.config(function ($stateProvider, RestangularProvider) {
+app.config(($stateProvider, RestangularProvider) => {
     let signupState = {
         name: 'signup',
         url: '/signup',
@@ -28,19 +28,15 @@ app.config(function ($stateProvider, RestangularProvider) {
     let tableServerState = {
         name: 'tableServer',
         url: '/table-server',
-        templateUrl: 'table.html'
+        templateUrl: 'table-server.html'
     };
 
     $stateProvider.state(signupState);
     $stateProvider.state(tableFrontState);
     $stateProvider.state(tableServerState);
 
-    RestangularProvider.setBaseUrl('http://localhost:3000/singup');
-    RestangularProvider.setRequestInterceptor(function (elem, operation, what) {
-        return elem;
-    });
+    RestangularProvider.setBaseUrl('http://localhost:3000/');
 });
 
-
-require('./auth')(app);
 require('./table')(app);
+require('./auth')(app);

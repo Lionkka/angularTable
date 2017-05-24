@@ -26,15 +26,15 @@ function getAllProductsWithPagination(req, res, next) {
 
     let output = productsDB;
     let reqData = req.query;
-    let response = {};
+    let response = [];
 
     output = searchProducts(output, reqData);
     output = sortProducts(output, reqData);
 
-    response.totalItems = output.length;
+    response[0] = output.length;
     output = output.slice((reqData.page - 1) * reqData.maxSize, reqData.page * reqData.maxSize);
 
-    response.output = output;
+    response[1] = output;
     res.send(response);
 
 
