@@ -1,7 +1,7 @@
 "use strict";
 const express = require('express');
 const router = express.Router();
-const coutriesJSON  = require('../res/countries.json');
+const coutriesJSON = require('../res/countries.json');
 const citiesJSON = require('../res/world-cities.json');
 
 router.get('/counties', getCounties);
@@ -10,18 +10,23 @@ router.post('/adduser', addUser);
 
 function addUser(req, res, next) {
 
-    setTimeout(()=>{
-        getRandom()>1000
-            ? res.send('success')
-            :res.send('fail');
-    },getRandom());
+    setTimeout(() => {
+        if (getRandom() > 1000) {
+            res.send('success');
+        }
+
+        else {
+            res.status(404);
+            res.send("I don't like your user");
+        }
+    }, getRandom());
 }
 
 function getCounties(req, res, next) {
 
-    setTimeout(()=>
-        res.send(coutriesJSON)
-        ,getRandom())
+    setTimeout(() =>
+            res.send(coutriesJSON)
+        , getRandom())
 
 
 }
@@ -30,15 +35,15 @@ function getCities(req, res, next) {
 
     let country = req.params.country;
     let resCities = [];
-    citiesJSON.forEach((item)=>{
-        if (item.country === country){
+    citiesJSON.forEach((item) => {
+        if (item.country === country) {
             resCities.push(item.name);
         }
     });
     resCities.sort();
-    setTimeout(()=>
+    setTimeout(() =>
             res.send(resCities)
-        ,getRandom())
+        , getRandom())
 
 }
 function getRandom() {

@@ -1,31 +1,37 @@
 "use strict";
 
 module.exports = (app) => {
-    app.controller('authCtrl', ($scope, toaster, Restangular) => {
+    app.controller('authCtrl', ($scope, toaster, Restangular,cfpLoadingBar) => {
+
+
 
         getCountries();
         function getCountries() {
-            toaster.pop('wait', "Process");
+            cfpLoadingBar.start();
+            let message = toaster.pop('wait', "Process");
             Restangular.all('singup/counties').getList()
                 .then((countries) => {
-                    showMessage(countries);
+                    cfpLoadingBar.complete();
+                    toaster.clear(message);
                     $scope.countries = countries;
                 });
         }
 
         $scope.getCities = (country) => {
-            toaster.pop('wait', "Process");
+            let message = toaster.pop('wait', "Process");
+            cfpLoadingBar.start();
             Restangular.all('singup/cities/' + country).getList()
                 .then((cities) => {
                     $scope.cities = cities;
-                    showMessage(cities);
+                    cfpLoadingBar.complete();
+                    toaster.clear(message);
                 });
         };
 
         $scope.submitForm = function (isValid) {
             if (isValid) {
-
-                toaster.pop('wait', "Storing your data");
+                cfpLoadingBar.start();
+                let message = toaster.pop('wait', "Process");
                 let formObj = {
                     first_name: $scope.first_name,
                     last_name: $scope.last_name,
@@ -40,7 +46,9 @@ module.exports = (app) => {
                 Restangular.all('singup/adduser')
                     .post(formObj)
                     .then((result) => {
-                        showMessage(result === 'success');
+                        toaster.clear(message);
+                        toaster.pop('success', "Success", null, 5000);
+                        cfpLoadingBar.complete();
                     });
             }
 
@@ -65,16 +73,6 @@ module.exports = (app) => {
             let date = data.date,
                 mode = data.mode;
             return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
-        }
-
-        function showMessage(response) {
-            toaster.clear();
-            if (response) {
-                toaster.pop('success', "Success", null, 1000);
-            }
-            else {
-                toaster.pop('error', "Something wrong", null, 5000);
-            }
         }
 
     });

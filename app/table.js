@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports = (app) => {
-    app.controller('productCtrl', ($scope, $timeout, toaster, Restangular) => {
+    app.controller('productCtrl', ($scope, $timeout, toaster, Restangular, cfpLoadingBar) => {
         $scope.sortType = 'id';
         $scope.connectivity = ['Blocked', 'Unblocked'];
         $scope.sortReverse = false;
@@ -23,11 +23,13 @@ module.exports = (app) => {
         getGroups();
         productsReq();
         function getGroups() {
+            cfpLoadingBar.start();
             toaster.pop('wait', "Process");
-            Restangular.all('products/groups').getList().then((groups) => {
-                //showMessage(groups);
-                $scope.groups = groups;
-            });
+            Restangular.all('products/groups').getList()
+                .then((groups) => {
+                    toaster.clear();
+                    $scope.groups = groups;
+                });
         }
 
         $scope.searchProduct = function () {
@@ -96,35 +98,26 @@ module.exports = (app) => {
 
         function productsReq() {
             toaster.pop('wait', "Process");
+            cfpLoadingBar.start();
             $timeout(() => {
-                Restangular.all('products').getList().then((result) => {
-                    showMessage(result);
-                    $scope.products = result;
-                    $scope.bigTotalItems = result.length;
-                    $scope.pageChanged();
-                    $scope.numPages = Math.ceil($scope.bigTotalItems / $scope.maxSize);
+                Restangular.all('products').getList()
+                    .then((result) => {
+                        $scope.products = result;
+                        $scope.bigTotalItems = result.length;
+                        $scope.pageChanged();
+                        $scope.numPages = Math.ceil($scope.bigTotalItems / $scope.maxSize);
+                        toaster.clear();
+                        cfpLoadingBar.complete();
                 });
 
-            }, '2000');
+            }, 2000);
 
-
-        }
-
-        function showMessage(response) {
-            toaster.clear();
-            console.log('must be toaster');
-            if (response) {
-                toaster.pop('success', "Success", null, 5000);
-            }
-            else {
-                toaster.pop('error', "Something wrong", null, 5000);
-            }
         }
 
 
     });
 
-    app.controller('serverSortCtrl', ($scope, toaster, Restangular) => {
+    app.controller('serverSortCtrl', ($scope, toaster, Restangular, cfpLoadingBar) => {
         $scope.sortType = 'id';
         $scope.connectivity = ["Blocked", "Unblocked"];
         $scope.sortReverse = false;
@@ -151,6 +144,7 @@ module.exports = (app) => {
         }
 
         $scope.requestData = () => {
+            cfpLoadingBar.start();
             toaster.pop('wait', "Process");
 
             let params = {
@@ -163,6 +157,7 @@ module.exports = (app) => {
             Restangular.all('products/paginate')
                 .getList(params)
                 .then((result) => {
+                    cfpLoadingBar.complete();
                     showMessage(result);
                     $scope.data = result[1];
                     $scope.totalItems = result[0];
